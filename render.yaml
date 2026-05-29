@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: sistema-b-dashboard
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NEXT_TELEMETRY_DISABLED
+        value: "1"
+      - key: KEYCLOAK_URL
+        sync: false
+      - key: KEYCLOAK_REALM
+        sync: false
+      - key: KEYCLOAK_CLIENT_ID
+        sync: false
+      - key: KEYCLOAK_CLIENT_SECRET
+        sync: false
+      - key: VAULT_ADDR
+        sync: false
+      - key: VAULT_TOKEN
+        sync: false
+      - key: VAULT_TRANSIT_KEY
+        sync: false
+      - key: VAULT_NAMESPACE
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: NEXTAUTH_URL
+        sync: false

@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Permitir conexiones externas para Keycloak y Vault
+  output: 'standalone',
+
   experimental: {
     serverActions: {
       bodySizeLimit: '2mb',
